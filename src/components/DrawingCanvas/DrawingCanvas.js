@@ -17,7 +17,7 @@ const DrawingCanvas = () => {
         context.fillRect(0,0, canvas.width, canvas.height);
         context.lineCap = "round";
         context.strokeStyle = "black";
-        context.lineWidth = 5;
+        context.lineWidth = 40;
         contextRef.current = context;
 
     }, []);
