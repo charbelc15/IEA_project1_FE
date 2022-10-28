@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const PredictButton = styled.button`
-  background-color: blue;
+const TranslateButton = styled.button`
+  background-color: red;
   color: white;
   cursor: pointer;
   box-shadow: 2px 2px 2px lightgray;
@@ -17,4 +17,4 @@ const PredictButton = styled.button`
 
 
 
-  export default PredictButton;
+  export default TranslateButton;
