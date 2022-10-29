@@ -48,14 +48,32 @@ const DrawingCanvas = () => {
         setIsDrawing(false)
     };
 
-    return (
-        <canvas className="canvas-container"
-        ref={canvasRef}
-        onMouseDown={startDrawing}
-        onMouseMove={draw}
-        onMouseUp={stopDrawing}>
+    const clearCanvas = () => {
+        contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    };
 
-        </canvas>
+    
+
+    return (
+        <div>
+                    <canvas className="canvas-container"
+                    ref={canvasRef}
+                    onMouseDown={startDrawing}
+                    onMouseMove={draw}
+                    onMouseUp={stopDrawing}>
+
+                    </canvas>
+                <div>
+
+                <button onClick={clearCanvas} className="button">
+                        Clear
+                </button>
+
+                </div>
+
+        
+        </div>
+
     )
 }
 
