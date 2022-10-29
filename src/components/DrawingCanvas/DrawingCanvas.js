@@ -56,7 +56,9 @@ const DrawingCanvas = () => {
 
     return (
         <div>
-                    <canvas className="canvas-container"
+                    <canvas 
+                    id="canvas"
+                    className="canvas-container"
                     ref={canvasRef}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}

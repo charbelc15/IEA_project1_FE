@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import DrawingCanvas from './components/DrawingCanvas/DrawingCanvas';
 import PredictButton from './components/Predict/PredictButton';
 import RetrainButton from './components/Retrain/RetrainButton';
@@ -26,10 +26,12 @@ function App() {
   } 
 
   const [file, setFile] = useState([]);
+  const [file2, setFile2] = useState([]);
+  const RetrainLabel = useRef()
  
   const predict = e => {
     console.log(e.target.files[0])
-    setFile([...file, e.target.files[0]]);
+    // setFile([...file, e.target.files[0]]);
 
     let formData = new FormData();
     formData.append('file', e.target.files[0]);
@@ -49,8 +51,44 @@ function App() {
         document.getElementById("label").value="cant display file label";
         console.error(response);
       });
+    e.preventDefault();
   }
 
+  const retrain = e => {
+    // setFile([...file2, e.target.files[0]]);
+
+    let formData = new FormData();
+    formData.append('image', e.target.files[0]);      // To change key according to anthony param
+    formData.append('type', e.target.files[0].type);
+
+    var label = RetrainLabel.current.value;
+
+    console.log(label.length)
+    
+    if(label.length>0){
+      
+      axios.post('http://localhost:8000/re-train?output_label='+label, formData, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(function(response) {
+        alert("Retrain Done! and " + label + " was added")
+        console.log(response.data.success);
+      })      
+      .catch(function(response) {
+        alert("Retrain fail");
+      });
+    
+    }
+    else{
+      alert("Fill Label output value!")
+    }
+    
+      e.preventDefault();
+    
+  }
 
   return (
     < >
@@ -59,9 +97,14 @@ function App() {
         </DrawingCanvas>
       </div>
 
+      <div className='App'>
+        <label>
+          PREDICTION
+        </label>
+      </div>
+      
       <div className='App'>  
         <PredictButton onClick={() => { }}>
-          PREDICT--
         <input type="file" onChange={predict} ></input>
         </PredictButton>
 
@@ -69,14 +112,35 @@ function App() {
       </div>
 
       <div className='App'>
-        <RetrainButton onClick={sayHello}>
-          Retrain
+        <label>
+          RETRAIN
+        </label>
+      </div>
+      
+      <div className='App'>
+        <label>
+              Retrain Label:
+              <input required ref={RetrainLabel} id="retrainlabel" type="text"  />
+        </label>
+
+        <RetrainButton onClick={() => { }}>
+          Retrain--
+        <input type="file" onChange={retrain} ></input>
         </RetrainButton>
-        
+      </div>
+
+      <div className='App'>
+        <label>
+          TRANSLATION
+        </label>
+      </div>
+
+      <div className='App'>
         <TranslateButton onClick={sayHello}>
           Translate
         </TranslateButton>
       </div>
+
     </>
   );
 }
