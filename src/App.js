@@ -25,6 +25,23 @@ function App() {
       });
   } 
 
+  function translate() {
+    var textToTranslate = document.getElementById("toTranslate").value;
+    axios({
+      method: 'get',
+      url: 'http://localhost:8000/translate?word='+textToTranslate,
+      headers: {
+          'Accept': 'application/json'
+          },
+      })
+      .then(function(response) {
+        document.getElementById("translated").value=response.data.data;
+      })
+      .catch(function(response) {
+          console.error(response);
+      });
+  } 
+
   const [file, setFile] = useState([]);
   const [file2, setFile2] = useState([]);
   const RetrainLabel = useRef()
@@ -45,6 +62,7 @@ function App() {
       })
       .then(function(response) {
         document.getElementById("label").value="Image label:" + response.data.data;
+        document.getElementById("toTranslate").value= document.getElementById("toTranslate").value + response.data.data[2];
         console.log(response.data.data)
       })      
       .catch(function(response) {
@@ -136,9 +154,11 @@ function App() {
       </div>
 
       <div className='App'>
-        <TranslateButton onClick={sayHello}>
+        <textarea id='toTranslate' placeholder="Text to translate" disabled readOnly></textarea>
+        <TranslateButton onClick={translate}>
           Translate
         </TranslateButton>
+        <textarea id='translated' placeholder="Translation output" disabled readOnly></textarea>
       </div>
 
     </>
