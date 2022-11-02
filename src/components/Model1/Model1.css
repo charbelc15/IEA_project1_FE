@@ -1,0 +1,18 @@
+/* #ModelLabel {
+    margin-top: 10px;
+} */
+#PredictionLabel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#RetrainLabel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.warning {
+    border: 10px ridge #f00;
+    background-color: #ff0;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+}
