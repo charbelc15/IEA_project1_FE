@@ -13,7 +13,7 @@ const Model2 = () => {
     const [Delated_image, set_Delated_Image] = useState("");
     const [Resized_image, set_Resized_Image] = useState("");
 
-    const RetrainLabel = useRef()
+    const RetrainLabel2 = useRef()
 
     const predict = e => {
     console.log("Uploaded File: ",e.target.files[0])
@@ -47,41 +47,41 @@ const Model2 = () => {
     e.preventDefault();
     }
 
-    // const retrain = e => {
-    // // setFile([...file2, e.target.files[0]]);
+    const retrain = e => {
+    // setFile([...file2, e.target.files[0]]);
 
-    // let formData = new FormData();
-    // formData.append('image', e.target.files[0]);      // To change key according to anthony param
-    // formData.append('type', e.target.files[0].type);
+    let formData = new FormData();
+    formData.append('image', e.target.files[0]);      // To change key according to anthony param
+    formData.append('type', e.target.files[0].type);
 
-    // var label = RetrainLabel.current.value;
+    var label = RetrainLabel2.current.value;
 
-    // console.log(label.length)
+    console.log(label.length)
     
-    // if(label.length>0){
+    if(label.length>0){
         
-    //     axios.post('http://localhost:8000/re-train?output_label='+label, formData, {
-    //     headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'multipart/form-data'
-    //     }
-    //     })
-    //     .then(function(response) {
-    //     alert("Retrain Done! and " + label + " was added")
-    //     console.log(response.data.success);
-    //     })      
-    //     .catch(function(response) {
-    //     alert("Retrain fail");
-    //     });
+        axios.post('http://localhost:8000/re-train2?output_label='+label, formData, {
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'multipart/form-data'
+        }
+        })
+        .then(function(response) {
+        alert("Retrain Done! and " + label + " was added")
+        console.log(response.data.success);
+        })      
+        .catch(function(response) {
+        alert("Retrain fail");
+        });
     
-    // }
-    // else{
-    //     alert("Fill Label output value!")
-    // }
+    }
+    else{
+        alert("Fill Label output value!")
+    }
     
-    //     e.preventDefault();
+        e.preventDefault();
     
-    // }
+    }
 
     const getBBImage = () => {
     axios.get("http://localhost:8000/send_BB_Image", {
@@ -171,23 +171,23 @@ const Model2 = () => {
 
         
         
-        {/* <div className='App'>
-            <label  id="RetrainLabel">
+        <div className='App'>
+            <h3  id="RetrainLabel">
             -------------------------- RETRAIN --------------------------
-            </label>
+            </h3>
         </div>
       
-        <div className='App'>
+        <div className='warning'>
             <label>
                 Retrain Label:
-                <input required ref={RetrainLabel} id="retrainlabel" type="text"  />
+                <input required ref={RetrainLabel2} id="retrainlabel2" type="text"  />
             </label>
 
             <RetrainButton onClick={() => { }}>
             <input type="file" onChange={retrain} ></input>
             </RetrainButton>
         </div>
-      */}
+     
 
     </div>
      

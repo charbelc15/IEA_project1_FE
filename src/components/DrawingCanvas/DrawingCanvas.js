@@ -50,6 +50,8 @@ const DrawingCanvas = () => {
 
     const clearCanvas = () => {
         contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+        contextRef.current.fillRect(0,0, canvasRef.current.width, canvasRef.current.height);
+        contextRef.current.fillStyle = "white";
     };
 
     

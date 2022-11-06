@@ -60,7 +60,7 @@ const Model1 = () => {
     
     if(label.length>0){
         
-        axios.post('http://localhost:8000/re-train?output_label='+label, formData, {
+        axios.post('http://localhost:8000/re-train1?output_label='+label, formData, {
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'multipart/form-data'
@@ -180,7 +180,7 @@ const Model1 = () => {
         <div className='warning'>
             <label>
                 Retrain Label:
-                <input required ref={RetrainLabel} id="retrainlabel" type="text"  />
+                <input required ref={RetrainLabel} id="retrainlabel1" type="text"  />
             </label>
 
             <RetrainButton onClick={() => { }}>
