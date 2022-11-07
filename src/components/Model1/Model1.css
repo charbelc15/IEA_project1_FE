@@ -10,8 +10,8 @@
     margin-bottom: 10px;
 }
 .warning {
-    border: 10px ridge #f00;
-    background-color: #ff0;
+    border: 10px ridge #0B6EC0;
+    background-color: #0A90FF;
     padding: .5rem;
     display: flex;
     flex-direction: column;

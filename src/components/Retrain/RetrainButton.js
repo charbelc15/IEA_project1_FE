@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const RetrainButton = styled.button`
-  background-color: pink;
+  background-color: #0F43DA;
   color: white;
   cursor: pointer;
   box-shadow: 2px 2px 2px lightgray;

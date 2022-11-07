@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const TranslateButton = styled.button`
-  background-color: red;
+  background-color: #0D49F5;
   color: white;
   cursor: pointer;
   box-shadow: 2px 2px 2px lightgray;
