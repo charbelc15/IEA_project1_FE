@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import PredictButton from '../Predict/PredictButton';
 import RetrainButton from '../Retrain/RetrainButton';
 import axios from "axios";
-import './Model1.css'
+import './Model1.css';
+import arrow from '../../right-arrow.png'
 
 
 
@@ -14,6 +15,7 @@ const Model1 = () => {
     const [Resized_image, set_Resized_Image] = useState("");
 
     const RetrainLabel = useRef()
+    const arrow = require('../../right-arrow.png')
 
     const predict = e => {
     console.log("Uploaded File: ",e.target.files[0])
@@ -132,7 +134,11 @@ const Model1 = () => {
         
         <div className='App'>
             <h2 id="ModelLabel">
-            --------------------------------- MODEL 1 ---------------------------------
+            ---------------------------------
+            {/* <img id="AI" src={require('../../AI.png')}/>  */}
+            MODEL 1
+            {/* <img id="AI" src={require('../../AI2.png')}/> */}
+             ---------------------------------
             </h2>
         </div>
         
@@ -154,15 +160,15 @@ const Model1 = () => {
         <div className='App'>
             <label id="BoundingBoxLabel"> Bounded Box: </label>
             <img id="image" src={`data:image/png;base64,${BB_image}`} alt="" />
-            <label id="BoundingBoxLabel"> ----------> </label>
+            <img id="arrow" src={arrow}/>
 
             <label id="BoundingBoxLabel"> Cropped Image: </label>
             <img id="image" src={`data:image/png;base64,${Cropped_image}`} alt="" />
-            <label id="BoundingBoxLabel"> ----------> </label>
+            <img id="arrow" src={arrow}/>
 
             <label id="BoundingBoxLabel"> Delated Image: </label>
             <img id="image" src={`data:image/png;base64,${Delated_image}`} alt="" />
-            <label id="BoundingBoxLabel"> ----------> </label>
+            <img id="arrow" src={arrow}/>
 
             <label id="BoundingBoxLabel"> Resized Image: </label>
             <img id="image" src={`data:image/png;base64,${Resized_image}`} alt="" />
