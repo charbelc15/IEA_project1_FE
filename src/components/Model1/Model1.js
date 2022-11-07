@@ -38,7 +38,7 @@ const Model1 = () => {
         getResizedImage()
         console.log("FastAPI model1 response", response)
         // response.data.data="['H']"
-        document.getElementById("label").value="Image label:" + response.data.data;
+        document.getElementById("label").value="Model1 label:" + response.data.data;
         document.getElementById("toTranslate").value= document.getElementById("toTranslate").value + response.data.data[2];
         console.log(response.data.data)
         })      
@@ -158,19 +158,15 @@ const Model1 = () => {
         </div>
       
         <div className='App'>
-            <label id="BoundingBoxLabel"> Bounded Box: </label>
             <img id="image" src={`data:image/png;base64,${BB_image}`} alt="" />
             <img id="arrow" src={arrow}/>
 
-            <label id="BoundingBoxLabel"> Cropped Image: </label>
             <img id="image" src={`data:image/png;base64,${Cropped_image}`} alt="" />
             <img id="arrow" src={arrow}/>
 
-            <label id="BoundingBoxLabel"> Delated Image: </label>
             <img id="image" src={`data:image/png;base64,${Delated_image}`} alt="" />
             <img id="arrow" src={arrow}/>
 
-            <label id="BoundingBoxLabel"> Resized Image: </label>
             <img id="image" src={`data:image/png;base64,${Resized_image}`} alt="" />
 
         </div>
