@@ -3,6 +3,7 @@ import './App.css';
 import DrawingCanvas from './components/DrawingCanvas/DrawingCanvas';
 import Model1 from './components/Model1/Model1';
 import Model2 from './components/Model2/Model2';
+import Model3 from './components/Model3/Model3';
 import TranslateButton from './components/Translate/TranslateButton';
 import axios from "axios";
 
@@ -59,6 +60,10 @@ function App() {
         </Model2>
       </div>
 
+      <div className='App'>
+        <Model3> 
+        </Model3>
+      </div>
 
       <div className='App'>
         <h2 id="Translationlabel">

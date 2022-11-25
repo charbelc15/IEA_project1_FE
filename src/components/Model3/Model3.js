@@ -2,18 +2,18 @@ import React, { useState, useRef } from 'react';
 import PredictButton from '../Predict/PredictButton';
 import RetrainButton from '../Retrain/RetrainButton';
 import axios from "axios";
-import './Model1.css';
+import './Model3.css';
 
 
 
-const Model1 = () => {
+const Model3 = () => {
     
     const [BB_image, setBBImage] = useState("");
     const [Cropped_image, set_Cropped_Image] = useState("");
     const [Delated_image, set_Delated_Image] = useState("");
     const [Resized_image, set_Resized_Image] = useState("");
 
-    const RetrainLabel = useRef()
+    const RetrainLabel3 = useRef()
     const arrow = require('../../right-arrow.png')
 
     const predict = e => {
@@ -35,14 +35,14 @@ const Model1 = () => {
         getCroppedImage()
         getDelatedImage()
         getResizedImage()
-        console.log("FastAPI model1 response", response)
+        console.log("FastAPI model3 response", response)
         // response.data.data="['H']"
-        document.getElementById("label").value="Model1 label:" + response.data.data;
+        document.getElementById("ImagelabelModel3").value="Model3 label:" + response.data.data;
         document.getElementById("toTranslate").value= document.getElementById("toTranslate").value + response.data.data[2];
         console.log(response.data.data)
         })      
         .catch(function(response) {
-        document.getElementById("label").value="cant display file label";
+        document.getElementById("ImagelabelModel3").value="cant display file label";
         console.error(response);
         });
     e.preventDefault();
@@ -55,7 +55,7 @@ const Model1 = () => {
     formData.append('image', e.target.files[0]);      // To change key according to anthony param
     formData.append('type', e.target.files[0].type);
 
-    var label = RetrainLabel.current.value;
+    var label = RetrainLabel3.current.value;
 
     console.log(label.length)
     
@@ -135,7 +135,7 @@ const Model1 = () => {
             <h2 id="ModelLabel">
             ---------------------------------
             {/* <img id="AI" src={require('../../AI.png')}/>  */}
-            MODEL 1
+            ------------------------------MODEL 3---------------------------------
             {/* <img id="AI" src={require('../../AI2.png')}/> */}
              ---------------------------------
             </h2>
@@ -153,7 +153,7 @@ const Model1 = () => {
             <input type="file" onChange={predict} ></input>
             </PredictButton>
 
-            <textarea id='label' placeholder="Model 1 label" disabled readOnly></textarea>
+            <textarea id='ImagelabelModel3' placeholder="Model 3 label" disabled readOnly></textarea>
         </div>
       
         <div className='App'>
@@ -181,7 +181,7 @@ const Model1 = () => {
         <div className='warning'>
             <label>
                 Retrain Label:
-                <input required ref={RetrainLabel} id="retrainlabel1" type="text"  />
+                <input required ref={RetrainLabel3} id="retrainlabel3" type="text"  />
             </label>
 
             <RetrainButton onClick={() => { }}>
@@ -195,4 +195,4 @@ const Model1 = () => {
     )
 }
 
-export default Model1;
+export default Model3;

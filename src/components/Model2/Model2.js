@@ -3,7 +3,6 @@ import PredictButton from '../Predict/PredictButton';
 import RetrainButton from '../Retrain/RetrainButton';
 import axios from "axios";
 import './Model2.css'
-import arrow from '../../right-arrow.png'
 
 
 
@@ -155,13 +154,13 @@ const Model2 = () => {
       
         <div className='App'>
             <img id="image" src={`data:image/png;base64,${BB_image}`} alt="" />
-            <img id="arrow" src={arrow}/>
+            <img id="arrow" src={arrow} alt=""/>
 
             <img id="image" src={`data:image/png;base64,${Cropped_image}`} alt="" />
-            <img id="arrow" src={arrow}/>
+            <img id="arrow" src={arrow} alt=""/>
 
             <img id="image" src={`data:image/png;base64,${Delated_image}`} alt="" />
-            <img id="arrow" src={arrow}/>
+            <img id="arrow" src={arrow} alt=""/>
 
             <img id="image" src={`data:image/png;base64,${Resized_image}`} alt="" />
 
