@@ -1,0 +1,25 @@
+#ModelLabel {
+    margin-top: 50px;
+}
+#PredictionLabel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#RetrainLabel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.warning {
+    border: 10px ridge #0B6EC0;
+    background-color: #0A90FF;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+#arrow {
+    height: 50px;
+    width: 50px;
+}
+#ImagelabelModel4{
+    font-size: 20px;
+}

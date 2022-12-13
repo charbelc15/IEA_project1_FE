@@ -3,18 +3,18 @@ import React from 'react';
 import PredictButton from '../Predict/PredictButton';
 // import RetrainButton from '../Retrain/RetrainButton';
 import axios from "axios";
-import './Model3.css';
+import './Model5.css';
 
 
 
-const Model3 = () => {
+const Model5 = () => {
     
     // const [BB_image, setBBImage] = useState("");
     // const [Cropped_image, set_Cropped_Image] = useState("");
     // const [Delated_image, set_Delated_Image] = useState("");
     // const [Resized_image, set_Resized_Image] = useState("");
 
-    // const RetrainLabel3 = useRef()
+    // const RetrainLabel5 = useRef()
     // const arrow = require('../../right-arrow.png')
 
     const predict = e => {
@@ -25,7 +25,7 @@ const Model3 = () => {
     formData.append('file', e.target.files[0]);
     formData.append('type', e.target.files[0].type);
     
-    axios.post('http://localhost:8000/preprocess_inference_model1', formData, {
+    axios.post('http://localhost:8000/preprocess_inference_model3', formData, {
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'multipart/form-data'
@@ -36,14 +36,14 @@ const Model3 = () => {
         // getCroppedImage()
         // getDelatedImage()
         // getResizedImage()
-        console.log("FastAPI model3 response", response)
+        console.log("FastAPI Best of CNN response", response)
         // response.data.data="['H']"
-        document.getElementById("ImagelabelModel3").value="Perceptron label:" + response.data.data;
-        document.getElementById("toTranslate").value= document.getElementById("toTranslate").value + response.data.data[2];
+        document.getElementById("ImagelabelModel5").value="Ensemble MLP label:" + response.data.data;
+        document.getElementById("toTranslate").value= document.getElementById("toTranslate").value + response.data.data;
         console.log(response.data.data)
         })      
         .catch(function(response) {
-        document.getElementById("ImagelabelModel3").value="cant display file label";
+        document.getElementById("ImagelabelModel5").value="cant display file label";
         console.error(response);
         });
     e.preventDefault();
@@ -56,7 +56,7 @@ const Model3 = () => {
     // formData.append('image', e.target.files[0]);      // To change key according to anthony param
     // formData.append('type', e.target.files[0].type);
 
-    // var label = RetrainLabel3.current.value;
+    // var label = RetrainLabel5.current.value;
 
     // console.log(label.length)
     
@@ -137,7 +137,7 @@ const Model3 = () => {
             <h2 id="ModelLabel">
             ---------------------------------
             {/* <img id="AI" src={require('../../AI.png')}/>  */}
-            ------------------------------ Perceptron ---------------------------------
+            ------------------------------ Ensemble MLP label ---------------------------------
             {/* <img id="AI" src={require('../../AI2.png')}/> */}
              ---------------------------------
             </h2>
@@ -155,7 +155,7 @@ const Model3 = () => {
             <input type="file" onChange={predict} ></input>
             </PredictButton>
 
-            <textarea id='ImagelabelModel3' placeholder="Perceptron label" disabled readOnly></textarea>
+            <textarea id='ImagelabelModel5' placeholder="Ensemble MLP label" disabled readOnly></textarea>
         </div>
       
         {/* <div className='App'>
@@ -183,7 +183,7 @@ const Model3 = () => {
         {/* <div className='warning'>
             <label>
                 Retrain Label:
-                <input required ref={RetrainLabel3} id="retrainlabel3" type="text"  />
+                <input required ref={RetrainLabel5} id="retrainlabel5" type="text"  />
             </label>
 
             <RetrainButton onClick={() => { }}>
@@ -197,4 +197,4 @@ const Model3 = () => {
     )
 }
 
-export default Model3;
+export default Model5;

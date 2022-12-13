@@ -3,7 +3,9 @@ import './App.css';
 import DrawingCanvas from './components/DrawingCanvas/DrawingCanvas';
 import Model1 from './components/Model1/Model1';
 import Model2 from './components/Model2/Model2';
-import Model3 from './components/Model3/Model3';
+// import Model3 from './components/Model3/Model3';
+import Model4 from './components/Model4/Model4';
+import Model5 from './components/Model5/Model5';
 import TranslateButton from './components/Translate/TranslateButton';
 import axios from "axios";
 
@@ -60,9 +62,19 @@ function App() {
         </Model2>
       </div>
 
-      <div className='App'>
+      {/* <div className='App'>
         <Model3> 
         </Model3>
+      </div> */}
+
+      <div className='App'>
+        <Model4> 
+        </Model4>
+      </div>
+
+      <div className='App'>
+        <Model5> 
+        </Model5>
       </div>
 
       <div className='App'>
